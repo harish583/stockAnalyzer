@@ -1,7 +1,9 @@
 import "./App.css";
+import {useEffect, useState} from 'react';
 import getData from "./redux/action";
 import { FilterStocks } from "./helpers/graphs";
 function App() {
+  // const [isLoading, setIsLoading] = useState(true);
   const createChat = (id, stocks, type) => {
     // if (new Chart) {
       let newChart = new Chart(document.querySelector(id), {
@@ -28,13 +30,15 @@ function App() {
   };
   const loadCanva = (data) => {
     // setStoreData(prev => data);
+    
     const topStocks = FilterStocks(data, "top");
     const lowStocks = FilterStocks(data, "low");
-    debugger;
+    // debugger;
     createChat("#high", topStocks, "high");
     createChat("#low", lowStocks, "low");
     // console.log("storedata", storeData);
   };
+  // getData(loadCanva);
   return (
     <div className="App">
       <button
