@@ -3,7 +3,7 @@ import getData from "./redux/action";
 import { FilterStocks } from "./helpers/graphs";
 function App() {
   const createChat = (id, stocks, type) => {
-    if (new Chart) {
+    // if (new Chart) {
       let newChart = new Chart(document.querySelector(id), {
         type: "bar",
         data: {
@@ -24,7 +24,7 @@ function App() {
           },
         },
       });
-    }
+    // }
   };
   const loadCanva = (data) => {
     // setStoreData(prev => data);
