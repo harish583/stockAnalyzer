@@ -6,7 +6,7 @@ import {FilterStocks} from './helpers/graphs';
 function App() {
   const createChat =(id, stocks, type)=>{
     if(new Chart){
-    new Chart(document.querySelector(id), {
+    let newChart = new Chart(document.querySelector(id), {
       type: 'bar',
       data: {
         labels: stocks?.labels,
