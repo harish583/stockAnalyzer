@@ -1,7 +1,9 @@
 import "./App.css";
 import {useEffect, useState} from 'react';
+import styled from 'styled-components';
 import getData from "./redux/action";
 import { FilterStocks } from "./helpers/graphs";
+import Chart from 'chart.js/auto';
 function App() {
   // const [isLoading, setIsLoading] = useState(true);
   const createChat = (id, stocks, type) => {
@@ -12,7 +14,7 @@ function App() {
           labels: stocks?.labels,
           datasets: [
             {
-              label: "last 5 Days " + type,
+              label: "last 5 Days average " + type,
               data: stocks.dataSetData,
               borderWidth: 1,
             },
@@ -38,7 +40,13 @@ function App() {
     createChat("#low", lowStocks, "low");
     // console.log("storedata", storeData);
   };
-  // getData(loadCanva);
+  // useEffect(()=>{
+    // getData(loadCanva);
+  // },[])
+  const Stylediv = styled.div`
+  // display:grid;
+  // grid-template-colomns: auto auto;
+  ` 
   return (
     <div className="App">
       <button
@@ -48,8 +56,10 @@ function App() {
       >
         fetch data
       </button>
-      <canvas id="high" />
-      <canvas id="low" />
+      <Stylediv >
+        <canvas id="high" />
+        <canvas id="low" />
+      </Stylediv>
     </div>
   );
 }

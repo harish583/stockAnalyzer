@@ -48,8 +48,8 @@ export const FilterStocks = (data, type) => {
   });
 
   return {
-    labels: type == "top" ? getStockNames(newObj.slice(-6)) : getStockNames(newObj.slice(0,5)),
-    dataSetData:  type == "top" ? getStockValues(newObj.slice(-6)): getStockValues(newObj.slice(0,5)),
+    labels: type == "top" ? getStockNames(newObj.slice(-10)).reverse() : getStockNames(newObj.slice(0,10)),
+    dataSetData:  type == "top" ? getStockValues(newObj.slice(-10)).reverse(): getStockValues(newObj.slice(0,10)),
   };
 };
 export const getStockAvgPer = (data) => {
